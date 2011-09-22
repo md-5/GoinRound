@@ -1,1 +1,8 @@
 A simple threaded plugin that commences a series of tp's through all players for the specified time each. Ignores those with the appropriate permission.
+
+The GoinRound source code is made available under the following conditions:
+  * You may use and adapt the source code for educational use
+  * You may use and adapt the source code for personal use
+  * You may NOT use or adapt the source code for redistribution without explicit permission from the author
+
+GoinRound for Bukkit (C) md_5
