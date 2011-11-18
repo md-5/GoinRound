@@ -1,10 +1,11 @@
 name: GoinRound
-version: 1.0
+version: 1.1
 description: A simple threaded plugin that commences a series of tp's through all players for the specified time each. Ignores those with the appropriate permission.
 author: md_5
 website: https://github.com/md-5/GoinRound
 
 main: com.md_5.goinround.GoinRound
+softdepend: [VanishNoPacket, Spout]
 
 commands:
   gr:
