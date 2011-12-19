@@ -21,21 +21,55 @@ public class GUI {
     }
 
     public static void open(Plugin plugin, SpoutPlayer splayer) {
-        ArrayList<Player> playerList = getPlayers((Player) splayer);
-        GenericPopup popup = new GenericPopup();
+        //ArrayList<Player> playerList = getPlayers((Player) splayer);
+        ArrayList<String> playerList = new ArrayList<String>();
+        playerList.add("herp");
+        playerList.add("derp");
+        playerList.add("perp");
+        playerList.add("herp");
+        playerList.add("derp");
+        playerList.add("perp");
+        playerList.add("herp");
+        playerList.add("derp");
+        playerList.add("perp");
+        playerList.add("herp");
+        playerList.add("derp");
+        playerList.add("perp");
+        playerList.add("herp");
+        playerList.add("derp");
+        playerList.add("perp");
+        playerList.add("herp");
+        playerList.add("derp");
+        playerList.add("perp");
+        playerList.add("herp");
+        playerList.add("derp");
+        playerList.add("perp");
+
+
+        // Container
         GenericContainer container = new GenericContainer();
-        for (Player p : playerList) {
-            GenericCheckBox box = new GenericCheckBox(p.getName());
+        for (String p : playerList) {
+            GenericCheckBox box = new GenericCheckBox(p);
             container.addChild(box);
         }
-        container.setLayout(ContainerType.VERTICAL);
+        container.setHeight(480);
+        container.setWidth(854);
+        container.setAnchor(WidgetAnchor.TOP_CENTER);
         container.setAuto(true);
-        container.setDirty(true);
-                      
+
+        // Button
+        GenericContainer buttonContainer = new GenericContainer();
+        buttonContainer.setAnchor(WidgetAnchor.BOTTOM_CENTER);
+        buttonContainer.setAuto(true);
         GenericButton button = new GenericButton("GO!");
-        System.out.println("DOne");
+        button.setWidth(50);
+        button.setHeight(50);
+        buttonContainer.addChild(button);
+
+        // Popup
+        GenericPopup popup = new GenericPopup();
         popup.attachWidget(plugin, container);
-        popup.attachWidget(plugin, button);
+        //popup.attachWidget(plugin, button);
         splayer.getMainScreen().attachPopupScreen(popup);
     }
 

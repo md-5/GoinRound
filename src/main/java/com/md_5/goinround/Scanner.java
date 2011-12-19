@@ -26,7 +26,6 @@ public class Scanner implements Runnable {
         taskId = 0;
     }
 
-    @Override
     public void run() {
         if (!player.isOnline()) {
             plugin.removeAndDisableScanner(this, player);

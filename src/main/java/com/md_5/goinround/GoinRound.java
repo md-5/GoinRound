@@ -20,10 +20,10 @@ public class GoinRound extends JavaPlugin {
     public HashMap<Player, Scanner> journeys = new HashMap<Player, Scanner>();
     
     public void onEnable() {
-        /*if (getServer().getPluginManager().getPlugin("Spout").isEnabled()) {
+        if (getServer().getPluginManager().getPlugin("Spout").isEnabled()) {
             Binding binding = new Binding(this);
             SpoutManager.getKeyBindingManager().registerBinding("ScanKey", Keyboard.KEY_G, "Brings up the scan GUI", binding, this);
-        }*/
+        }
         logger.info(String.format("GoinRound v%1$s by md_5 enabled", this.getDescription().getVersion()));
     }
     
