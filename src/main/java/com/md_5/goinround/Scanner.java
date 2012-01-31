@@ -16,8 +16,7 @@ public class Scanner implements Runnable {
     private int taskId;
     private GoinRound plugin;
 
-    public Scanner(Player playerArg, int intervalArg, ArrayList<Player> playerListArg, GoinRound plugin) {
-        this.plugin = plugin;
+    public Scanner(Player playerArg, int intervalArg, ArrayList<Player> playerListArg) {
         player = playerArg;
         playerLoc = player.getLocation();
         interval = (intervalArg * 20);
@@ -28,7 +27,7 @@ public class Scanner implements Runnable {
 
     public void run() {
         if (!player.isOnline()) {
-            plugin.removeAndDisableScanner(this, player);
+            Api.removeAndDisableScanner(this, player);
         }
         if (currentPosition < unseenPlayerList.size()) {
             currentPlayer = unseenPlayerList.get(currentPosition);
@@ -36,10 +35,10 @@ public class Scanner implements Runnable {
                 player.teleport(currentPlayer);
                 player.sendMessage(ChatColor.GREEN + "You are now at " + currentPlayer.getName());
             } else {
-               player.teleport(currentPlayer);
-                player.sendMessage(ChatColor.GREEN + "You are now at where " + currentPlayer.getName() + " was");  
+                player.teleport(currentPlayer);
+                player.sendMessage(ChatColor.GREEN + "You are now at where " + currentPlayer.getName() + " was");
             }
-            currentPosition = currentPosition + 1;
+            currentPosition++;
             return;
         } else {
             quit();
@@ -50,7 +49,7 @@ public class Scanner implements Runnable {
     public void quit() {
         player.teleport(playerLoc);
         player.sendMessage(ChatColor.GOLD + "Your journey has ended and you have been returned to your original location");
-        plugin.removeAndDisableScanner(this, player);
+        Api.removeAndDisableScanner(this, player);
         unseenPlayerList.clear();
     }
 
@@ -78,7 +77,7 @@ public class Scanner implements Runnable {
         if (unseenPlayerList.contains(p)) {
             int index = unseenPlayerList.indexOf(p);
             if (index < currentPosition) {
-                currentPosition = currentPosition + 1;
+                currentPosition++;
             }
         }
         unseenPlayerList.remove(p);
