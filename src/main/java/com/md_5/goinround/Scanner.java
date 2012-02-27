@@ -14,7 +14,6 @@ public class Scanner implements Runnable {
     private Location playerLoc;
     private Player currentPlayer;
     private int taskId;
-    private GoinRound plugin;
 
     public Scanner(Player playerArg, int intervalArg, ArrayList<Player> playerListArg) {
         player = playerArg;
@@ -39,10 +38,8 @@ public class Scanner implements Runnable {
                 player.sendMessage(ChatColor.GREEN + "You are now at where " + currentPlayer.getName() + " was");
             }
             currentPosition++;
-            return;
         } else {
             quit();
-            return;
         }
     }
 

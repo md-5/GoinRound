@@ -5,18 +5,15 @@ import org.bukkit.entity.Player;
 
 public class ScanCommand {
 
-    public static void execute(Player player, String args) {
-        if (args.isEmpty()) {
-            scan(player, args);
-            return;
+    public static void execute(Player player, String[] args) {
+        if (args[0].isEmpty()) {
+            scan(player, args[1]);
         }
-        if (args.equalsIgnoreCase("stop")) {
+        if (args[0].equalsIgnoreCase("stop")) {
             stop(player);
-            return;
         }
-        if (args.equalsIgnoreCase("return")) {
+        if (args[0].equalsIgnoreCase("return")) {
             abort(player);
-            return;
         }
     }
 
@@ -25,6 +22,7 @@ public class ScanCommand {
             int time = Integer.parseInt(args);
             Api.scan(player, time);
         } catch (NumberFormatException ex) {
+            player.sendMessage(ChatColor.RED + "GoinRound: " + args + " is not a valid number");
         }
     }
 
@@ -43,6 +41,5 @@ public class ScanCommand {
         } else {
             player.sendMessage(ChatColor.RED + "GoinRound: You are not on any journey");
         }
-        return;
     }
 }

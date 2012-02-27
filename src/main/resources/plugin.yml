@@ -1,18 +1,18 @@
 name: GoinRound
-version: 1.1
+version: 1.2
 description: A simple threaded plugin that commences a series of tp's through all players for the specified time each. Ignores those with the appropriate permission.
 author: md_5
 website: https://github.com/md-5/GoinRound
 
 main: com.md_5.goinround.GoinRound
-softdepend: [VanishNoPacket, Spout]
+softdepend: [VanishNoPacket]
 
 commands:
   gr:
     description: Start a series of tp's through all players for x seconds each
     aliases: scan
     permission: goinround.scan
-    
+
 permissions:
     goinround.scan:
         description: Allows the player to commence scans
