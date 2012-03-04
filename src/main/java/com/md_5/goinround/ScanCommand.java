@@ -6,20 +6,20 @@ import org.bukkit.entity.Player;
 public class ScanCommand {
 
     public static void execute(Player player, String[] args) {
-        if (args[0].isEmpty()) {
-            scan(player, args[1]);
+        if (args.length == 0) {
+            player.sendMessage(ChatColor.RED + "GoinRound: Please enter start, stop, or a scan length as an argument");
+            return;
         }
         if (args[0].equalsIgnoreCase("stop")) {
             stop(player);
+            return;
         }
         if (args[0].equalsIgnoreCase("return")) {
             abort(player);
+            return;
         }
-    }
-
-    private static void scan(Player player, String args) {
         try {
-            int time = Integer.parseInt(args);
+            int time = Integer.parseInt(args[0]);
             Api.scan(player, time);
         } catch (NumberFormatException ex) {
             player.sendMessage(ChatColor.RED + "GoinRound: " + args + " is not a valid number");
